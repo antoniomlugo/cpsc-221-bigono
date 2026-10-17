@@ -483,7 +483,7 @@ Define tests for the 22 change scenarios, in addition to the 3 given as examples
 31) [A,B] -> set(0,C) -> [C,B]
 32) [A,B] -> set(1,C) -> [A,C]
 33) [A,B,C] -> removeFirst() -> [B,C]
-Tests:
+  Tests:
     addToFront(X) throws no Exceptions
     addToRear(X) throws no Exceptions
     addAfter(X, B) throws no Exceptions
@@ -498,7 +498,7 @@ Tests:
     removeFirst() returns B
     removeLast() returns C
     remove(A) returns NoSuchElementException
-    remove(B) throws B
+    remove(B) returns B
     remove(C) returns C
     remove(-1) throws IndexOutOfBoundsException
     remove(0) returns B
@@ -527,7 +527,7 @@ Tests:
 35) [A,B,C] -> remove(A) -> [B,C]
 36) [A,B,C] -> remove(B) -> [A,C]
 37) [A,B,C] -> remove(C) -> [A,B]
-Tests:
+  Tests:
     addToFront(X) throws no Exceptions
     addToRear(X) throws no Exceptions
     addAfter(X, A) throws no Exceptions
@@ -542,7 +542,7 @@ Tests:
     removeFirst() returns A
     removeLast() returns B
     remove(A) returns A
-    remove(B) throws B
+    remove(B) returns B
     remove(x) returns NoSuchElementException
     remove(-1) throws IndexOutOfBoundsException
     remove(0) returns A
