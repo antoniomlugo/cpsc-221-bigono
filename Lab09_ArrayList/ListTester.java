@@ -184,6 +184,7 @@ public class ListTester {
 			// Scenario: 12
 		testEmptyList(A_removeFirst_EMPTY, "A_removeFirst_EMPTY");
 			// Scenario: 13
+		testEmptyList(A_removeLast_EMPTY,"A_removeLast_Empty");
 
 			// Scenario: 14
 		testEmptyList(A_removeA_EMPTY, "A_removeA_EMPTY");
@@ -398,6 +399,13 @@ public class ListTester {
 	/** Scenario #13: [A] -> removeLast() -> [] 
 	 * @return [] after removeLast()
 	 */
+	private IndexedUnsortedList<Integer> A_removeLast_Empty() {
+		IndexedUnsortedList<Integer> list = newList();
+		list.add(ELEMENT_A);
+		list.removeLast();
+		return list;
+	}
+	private Scenario<Integer> A_removeLast_EMPTY = () -> A_removeLast_Empty();
 
 	/** Scenario #14: [A] -> remove(A) -> []
 	 * @return [] after remove(A)
