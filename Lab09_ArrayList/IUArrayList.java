@@ -12,7 +12,7 @@ public class IUArrayList<E> implements IndexedUnsortedList<E> {
 	private static final int NOT_FOUND = -1;
 	
 	private E[] array;
-	private int rear;
+	private int rear,front,count;
 	private int modCount; // DO NOT REMOVE ME
 	
 	/** Creates an empty list with default initial capacity */
@@ -27,7 +27,11 @@ public class IUArrayList<E> implements IndexedUnsortedList<E> {
 	@SuppressWarnings("unchecked")
 	public IUArrayList(int initialCapacity) {
 		array = (E[])(new Object[initialCapacity]);
-		rear = 0;
+		count = front = rear = 0;
+				/**
+				 * @Taylor I added a front and a count property may not 
+				 * be useful but can delete later if needed.
+				 */
 		modCount = 0; // DO NOT REMOVE ME
 	}
 	
@@ -115,9 +119,10 @@ public class IUArrayList<E> implements IndexedUnsortedList<E> {
 	}
 
 	@Override
-	public E get(int index) {
-		// TODO 
-		return null;
+	public E get(int index) {//TODO add proper Guard Statement
+		if(isEmpty()){return null;}//new EmptyListException("ArrayList");}
+
+		return array[index];
 	}
 
 	@Override
@@ -139,15 +144,17 @@ public class IUArrayList<E> implements IndexedUnsortedList<E> {
 	}
 
 	@Override
-	public E first() {
-		// TODO 
-		return null;
+	public E first() {//TODO Proper Guard Statement
+		if(isEmpty()){return null;}//new EmptyListException("ArrayList");}
+
+		return array[front];
 	}
 
 	@Override
-	public E last() {
-		// TODO 
-		return null;
+	public E last() {//TODO Proper Guard Statement
+		if(isEmpty()){return null;}//new EmptyListException("ArrayList");}
+	
+		return array[decrement(count)]; 
 	}
 
 	@Override
@@ -157,14 +164,12 @@ public class IUArrayList<E> implements IndexedUnsortedList<E> {
 
 	@Override
 	public boolean isEmpty() {
-		// TODO 
-		return false;
+		return size() == 0;
 	}
 
 	@Override
 	public int size() {
-		// TODO 
-		return 0;
+		return count;
 	}
 
 	@Override
@@ -172,6 +177,13 @@ public class IUArrayList<E> implements IndexedUnsortedList<E> {
 		String result = "[";
 		// TODO
 		return result + "]";
+	}
+	private int increment (int index){
+		return (index + 1) % array.length;
+	}
+
+	private int decrement(int index){
+		return index == 0 ? (array.length -1 ) : (index --);
 	}
 
 	// IGNORE THE FOLLOWING COMMENTED OUT CODE UNTIL LAB 10
