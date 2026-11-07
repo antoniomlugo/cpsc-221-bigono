@@ -425,8 +425,7 @@ public class ListTester {
 	 * @return [] after remove(0)
 	 */
 	private IndexedUnsortedList<Integer>A_remove0_EMPTY() {
-		IndexedUnsortedList<Integer> list = newList();
-		list.add(ELEMENT_A);
+		IndexedUnsortedList<Integer> list = emptyList_addToFrontA_A();
 		list.remove(0);
 		return list;
 	}
@@ -441,9 +440,7 @@ public class ListTester {
 	 * @return [C,A,B] after addToFront(C)
 	 */
 	private IndexedUnsortedList<Integer> AB_addToFrontC_CAB() {
-		IndexedUnsortedList<Integer> list = newList();
-		list.add(ELEMENT_A);
-		list.add(ELEMENT_B);
+		IndexedUnsortedList<Integer> list = A_addToRearB_AB();
 		list.addToFront(ELEMENT_C);
 		return list;
 	}
@@ -453,9 +450,7 @@ public class ListTester {
 	 * @return [A,B,C] after addAfter(C,B)
 	 */
 	private IndexedUnsortedList<Integer> AB_addAfterBC_ABC() {
-		IndexedUnsortedList<Integer> list = newList();
-		list.add(ELEMENT_A);
-		list.add(ELEMENT_B);
+		IndexedUnsortedList<Integer> list = A_addToRearB_AB();
 		list.addAfter(ELEMENT_C, ELEMENT_B);
 		return list;
 	}
