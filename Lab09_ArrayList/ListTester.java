@@ -189,7 +189,7 @@ public class ListTester {
 			// Scenario: 14
 		testEmptyList(A_removeA_EMPTY, "A_removeA_EMPTY");
 			// Scenario: 15
-
+		testEmptyList(A_remove0_EMPTY, "A_remove0_EMPTY");
 			// Scenario: 44
 
 
@@ -424,7 +424,13 @@ public class ListTester {
 	/** Scenario #15: [A] -> remove(0) -> [] 
 	 * @return [] after remove(0)
 	 */
-
+	private IndexedUnsortedList<Integer>A_remove0_EMPTY() {
+		IndexedUnsortedList<Integer> list = newList();
+		list.add(ELEMENT_A);
+		list.remove(0);
+		return list;
+	}
+	private Scenario<Integer> A_remove0_EMPTY = () -> A_remove0_EMPTY();
 	 
 	/** Scenario #16: [A] -> set(0,B) -> [B] 
 	 * @return [B] after set(0,B)
