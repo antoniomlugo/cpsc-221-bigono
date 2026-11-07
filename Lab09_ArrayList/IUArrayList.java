@@ -178,11 +178,11 @@ public class IUArrayList<E> implements IndexedUnsortedList<E> {
 		// TODO
 		return result + "]";
 	}
-	private int increment (int index){
+	private int increment(int index) {
 		return (index + 1) % array.length;
 	}
 
-	private int decrement(int index){
+	private int decrement(int index) {
 		return index == 0 ? (array.length -1 ) : (index --);
 	}
 
