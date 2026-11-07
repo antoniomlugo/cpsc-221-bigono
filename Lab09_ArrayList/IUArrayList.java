@@ -182,8 +182,10 @@ public class IUArrayList<E> implements IndexedUnsortedList<E> {
 		return (index + 1) % array.length;
 	}
 
-	private int decrement(int index) {
-		return index == 0 ? (array.length -1 ) : (index --);
+
+	private int decrement(int index){
+		return index == 0 ? (array.length -1 ) : (index -1);
+
 	}
 
 	// IGNORE THE FOLLOWING COMMENTED OUT CODE UNTIL LAB 10
