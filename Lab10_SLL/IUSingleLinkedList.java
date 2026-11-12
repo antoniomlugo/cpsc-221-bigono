@@ -58,9 +58,11 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 	}
 
 	@Override
-	public E removeLast() {
-		// TODO 
-		return null;
+ 	public E removeLast() {
+		LinearNode<E> result = new LinearNode<E>(); // Makes new linear node to store element
+		result = rear; // Makes result the element we want to get
+		remove(last()); 
+		return result.getElement();
 	}
 
 	@Override
@@ -106,14 +108,12 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 
 	@Override
 	public E first() {
-		// TODO 
-		return null;
+		return front.getElement(); //returns linear node front
 	}
 
 	@Override
 	public E last() {
-		// TODO 
-		return null;
+		return rear.getElement(); //returns linear node rear
 	}
 
 	@Override
@@ -124,14 +124,12 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 
 	@Override
 	public boolean isEmpty() {
-		// TODO 
-		return false;
+		return count == 0;//Returns true if count =0
 	}
 
 	@Override
 	public int size() {
-		// TODO 
-		return 0;
+		return count; //returns the count of items
 	}
 
 	@Override
