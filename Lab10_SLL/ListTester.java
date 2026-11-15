@@ -215,11 +215,11 @@ public class ListTester {
 			// Scenario: 26
 		testSingleElementList(AB_removeLast_A, "AB_removeLast_A", LIST_A, STRING_A);
 			// Scenario: 27
-
+		testSingleElementList(AB_removeA_B, "AB_removeA_B", LIST_B, STRING_B);
 			// Scenario: 28
 		testSingleElementList(AB_removeB_A, "AB_removeB_A", LIST_A, STRING_A);
 			// Scenario: 29
-
+		testSingleElementList(AB_removeIndex0_B, "AB_removeIndex0_B", LIST_B, STRING_B);
 			// Scenario: 30
 
 			// Scenario: 45
@@ -250,7 +250,7 @@ public class ListTester {
 			
 		//3-element to 2-element
 			// Scenario: 33
-
+		testTwoElementList(ABC_removeFirst_BC, "ABC_removeFirst_BC", LIST_BC, STRING_BC);
 			// Scenario: 37
 
 			// Scenario: 39
@@ -487,6 +487,13 @@ public class ListTester {
 	 * @return [B] after remove(A)
 	 */
 
+	private IndexedUnsortedList<Integer> AB_removeA_B() {
+		IndexedUnsortedList<Integer> list = emptyList_addToFrontA_A();
+		list.addToRear(ELEMENT_B);
+		list.remove(ELEMENT_A);
+		return list;
+	}
+	private Scenario<Integer> AB_removeA_B = () -> AB_removeA_B();
 	 
 	/** Scenario #28: [A,B] -> remove(B) -> [A]
 	 * @return [A] after remove(B)
@@ -502,8 +509,13 @@ public class ListTester {
 	/** Scenario #29: [A,B] -> remove(0) -> [B]
 	 * @return [B] after remove(0)
 	 */
-
-	 
+	private IndexedUnsortedList<Integer> AB_removeIndex0_B() {
+		IndexedUnsortedList<Integer> list = emptyList_addToFrontA_A(); 
+		list.addToRear(ELEMENT_B);
+		list.remove(0);
+		return list;
+	}
+	private Scenario<Integer> AB_removeIndex0_B = () -> AB_removeIndex0_B(); 
 	/** Scenario #30: [A,B] -> remove(1) -> [A]
 	 * @return [A] after remove(1)
 	 */
@@ -512,8 +524,13 @@ public class ListTester {
 	/** Scenario #33: [A,B,C] -> removeFirst() -> [B,C]
 	 * @return [B,C] after removeFirst()
 	 */
+	private IndexedUnsortedList<Integer> ABC_removeFirst_BC() {
+		IndexedUnsortedList<Integer> list = AB_addAfterBC_ABC();
+		list.removeFirst();
+		return list;
+	}
+	private Scenario<Integer> ABC_removeFirst_BC = () -> ABC_removeFirst_BC();
 
-	 
 	/** Scenario #37: [A,B,C] -> remove(C) -> [A,B]
 	 * @return [A,B] after remove(C)
 	 */
