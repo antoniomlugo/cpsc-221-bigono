@@ -203,7 +203,7 @@ public class ListTester {
 			
 		//1-element to changed 1-element via set()
 			// Scenario: 16
-
+		testSingleElementList(A_set0B_B, "A_set0B_B", LIST_B, STRING_B);
 			
 		//2-element to empty list
 			// Scenario: 47
@@ -221,7 +221,7 @@ public class ListTester {
 			// Scenario: 29
 		testSingleElementList(AB_removeIndex0_B, "AB_removeIndex0_B", LIST_B, STRING_B);
 			// Scenario: 30
-
+		testSingleElementList(AB_remove1_A, "AB_remove1_A", LIST_A, STRING_A);
 			// Scenario: 45
 		testSingleElementList(AB_iterNextRemove_B, "AB_iterNextRemove_B", LIST_B, STRING_B);
 			// Scenario: 46
@@ -232,7 +232,7 @@ public class ListTester {
 			// Scenario: 20 
 		testThreeElementList(AB_addAfterBC_ABC, "AB_addAfterBC_ABC", LIST_ABC, STRING_ABC);
 			// Scenario: 23
-
+		testThreeElementList(AB_addIndex1C_ACB, "AB_addIndex1C_ACB", LIST_ACB, STRING_ACB);
 			
 		//2-element to changed 2-element via set()
 
@@ -433,7 +433,12 @@ public class ListTester {
 	/** Scenario #16: [A] -> set(0,B) -> [B] 
 	 * @return [B] after set(0,B)
 	 */
-
+	private IndexedUnsortedList<Integer> A_set0B_B() {
+		IndexedUnsortedList<Integer> list = emptyList_addToFrontA_A();
+		list.set(0, ELEMENT_B);
+		return list;
+	}
+	private Scenario<Integer> A_set0B_B = () ->  A_set0B_B();
 	 
 	/** Scenario #17: [A,B] -> addToFront(C) -> [C,A,B] 
 	 * @return [C,A,B] after addToFront(C)
@@ -458,7 +463,12 @@ public class ListTester {
 	/** Scenario #23: [A,B] -> add(1,C) -> [A,C,B] 
 	 * @return [A,C,B] after add(1,C)
 	 */
-
+	private IndexedUnsortedList<Integer> AB_addIndex1C_ACB() {
+		IndexedUnsortedList<Integer> list = A_addToRearB_AB();
+		list.add(1,ELEMENT_C);
+		return list;
+	}
+	private Scenario<Integer> AB_addIndex1C_ACB = () -> AB_addIndex1C_ACB();
 	 
 	/** Scenario #25: [A,B] -> removeFirst() -> [B]
 	 * @return [B] after removeFirst()
@@ -519,7 +529,13 @@ public class ListTester {
 	/** Scenario #30: [A,B] -> remove(1) -> [A]
 	 * @return [A] after remove(1)
 	 */
-
+	private IndexedUnsortedList<Integer> AB_remove1_A() {
+    IndexedUnsortedList<Integer> list = emptyList_addToFrontA_A();
+    list.addToRear(ELEMENT_B);
+    list.remove(1);
+    return list;
+}
+private Scenario<Integer> AB_remove1_A = () -> AB_remove1_A();
 	 
 	/** Scenario #33: [A,B,C] -> removeFirst() -> [B,C]
 	 * @return [B,C] after removeFirst()
